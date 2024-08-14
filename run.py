@@ -38,46 +38,53 @@ def update_savings():
 
 def add_new_income():
     """
-    Prompts the user to input a new income and adds it to the Incomes sheet.
+    Prompts the user to input new incomes and adds them to the Incomes sheet
+    until the user decides to stop.
     """
     incomes_sheet = SHEET.worksheet("Incomes")
 
     while True:
-        date = input("Enter the date of the income (dd/mm/yyyy): ")
-        try:
-            datetime.strptime(date, '%d/%m/%Y')
-            break
-        except ValueError:
-            print("Invalid date format. Please try again.")
-    
-    income_types = ["Wages", "Freelance", "Investment", "Other"]
-    print("Select the type of income:")
-    for idx, income_type in enumerate(income_types, start=1):
-        print(f"{idx}. {income_type}")
-    
-    while True:
-        try:
-            income_type_choice = int(input("Enter the number corresponding to the income type: "))
-            if 1 <= income_type_choice <= len(income_types):
-                income_type = income_types[income_type_choice - 1]
+        while True:
+            date = input("Enter the date of the income (dd/mm/yyyy): ")
+            try:
+                datetime.strptime(date, '%d/%m/%Y')
                 break
-            else:
-                print("Invalid choice. Please choose a number from the list.")
-        except ValueError:
-            print("Invalid input. Please enter a number.")
+            except ValueError:
+                print("Invalid date format. Please try again.")
+        
+        income_types = ["Wages", "Freelance", "Investment", "Other"]
+        print("Select the type of income:")
+        for idx, income_type in enumerate(income_types, start=1):
+            print(f"{idx}. {income_type}")
+        
+        while True:
+            try:
+                income_type_choice = int(input("Enter the number corresponding to the income type: "))
+                if 1 <= income_type_choice <= len(income_types):
+                    income_type = income_types[income_type_choice - 1]
+                    break
+                else:
+                    print("Invalid choice. Please choose a number from the list.")
+            except ValueError:
+                print("Invalid input. Please enter a number.")
 
-    while True:
-        amount = input("Enter the amount of income (€): ")
-        try:
-            amount = float(amount)
+        while True:
+            amount = input("Enter the amount of income (€): ")
+            try:
+                amount = float(amount)
+                break
+            except ValueError:
+                print("Invalid amount. Please enter a number.")
+        
+        week_number = datetime.strptime(date, '%d/%m/%Y').isocalendar()[1]
+
+        incomes_sheet.append_row([date, week_number, income_type, amount])
+        print("New income added successfully!\n")
+
+        more_incomes = input("Do you want to add another income? (yes/no): ").strip().lower()
+        if more_incomes != 'yes':
+            print("No more incomes to add.\n")
             break
-        except ValueError:
-            print("Invalid amount. Please enter a number.")
-    
-    week_number = datetime.strptime(date, '%d/%m/%Y').isocalendar()[1]
-
-    incomes_sheet.append_row([date, week_number, income_type, amount])
-    print("New income added successfully!\n")
 
 
 def main():

@@ -80,6 +80,11 @@ def add_new_income():
     print("New income added successfully!\n")
 
 
+def main():
+    update_savings()
+    add_new_income()
+
+main()
 
 
 

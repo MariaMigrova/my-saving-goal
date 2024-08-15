@@ -86,12 +86,57 @@ def add_new_income():
             print("No more incomes to add.\n")
             break
 
+def add_new_expenses():
+    """
+    Prompts the user to input new expenses and adds them to the Expenses sheet
+    until the user decides to stop.
+    """
+    expenses_sheet = SHEET.worksheet("Expenses")
 
-def main():
-    update_savings()
-    add_new_income()
+    while True:
+        while True:
+            date = input("Enter the date of the expense (dd/mm/yyyy): ")
+            try:
+                datetime.strptime(date, '%d/%m/%Y')
+                break
+            except ValueError:
+                print("Invalid date format. Please try again.")
+        
+        expenses_types = ["Housing", "Transport", "Food", "Cosmetics", "Health & Wellness", "Entertainment & Leisure", "Clothing & Personal Care", "Gifts"]
+        print("Select the type of expenses:")
+        for idx, expenses_type in enumerate(expenses_types, start=1):
+            print(f"{idx}. {expenses_type}")
+        
+        while True:
+            try:
+                expenses_type_choice = int(input("Enter the number corresponding to the expenses type: "))
+                if 1 <= expenses_type_choice <= len(expenses_types):
+                    expenses_type = expenses_types[expenses_type_choice - 1]
+                    break
+                else:
+                    print("Invalid choice. Please choose a number from the list.")
+            except ValueError:
+                print("Invalid input. Please enter a number.")
 
-main()
+        while True:
+            amount = input("Enter the amount of expenses (€): ")
+            try:
+                amount = float(amount)
+                break
+            except ValueError:
+                print("Invalid amount. Please enter a number.")
+        
+        week_number = datetime.strptime(date, '%d/%m/%Y').isocalendar()[1]
+
+        expenses_sheet.append_row([date, week_number, expenses_type, amount])
+        print("New expense added successfully!\n")
+
+        more_expenses = input("Do you want to add another expenses? (yes/no): ").strip().lower()
+        if more_expenses != 'yes':
+            print("No more expenses to add.\n")
+            break
+
+
 
 
 

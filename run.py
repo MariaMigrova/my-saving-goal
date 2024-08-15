@@ -137,6 +137,16 @@ def add_new_expenses():
             break
 
 
+def main():
+    add_income_prompt = input("Do you want to add any new incomes? (yes/no): ").strip().lower()
+    if add_income_prompt == "yes":
+        add_new_income()
+    add_expenses_prompt = input("Do you want to add any new expenses? (yes/no): ").strip().lower()
+    if add_expenses_prompt == "yes":
+        add_new_expenses()
+    update_savings()
+
+main()
 
 
 

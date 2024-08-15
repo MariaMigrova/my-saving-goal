@@ -136,6 +136,40 @@ def add_new_expenses():
             print("No more expenses to add.\n")
             break
 
+def calculate_goal_progress():
+    """
+    Calculates how much is still missing from the savings goal and
+    how much needs to be saved per week on average to reach the goal.
+    """
+    savings_sheet = SHEET.worksheet("Savings")
+    goal_sheet = SHEET.worksheet("Goal")
+
+    last_row = len(savings_sheet.col_values(1))
+    current_savings = float(savings_sheet.cell(last_row, 3).value)
+
+    goal_data = goal_sheet.row_values(2) 
+    goal_date_str = goal_data[0]
+    goal_amount = float(goal_data[2])
+
+    goal_date = datetime.strptime(goal_date_str, '%d/%m/%Y')
+
+    missing_amount = goal_amount - current_savings
+
+    current_date = datetime.now()
+    remaining_weeks = (goal_date - current_date).days // 7
+
+    if remaining_weeks > 0:
+        weekly_savings_needed = missing_amount / remaining_weeks
+    else:
+        weekly_savings_needed = missing_amount
+
+    print(f"You still need to save {missing_amount:.2f} € to reach your goal of {goal_amount} € by {goal_date_str}.")
+    if remaining_weeks > 0:
+        print(f"You have {remaining_weeks} weeks remaining.")
+        print(f"On average, you need to save {weekly_savings_needed:.2f} € per week to reach your goal.")
+    else:
+        print("The goal date has passed. You need to save the remaining amount immediately.")
+
 
 def main():
     add_income_prompt = input("Do you want to add any new incomes? (yes/no): ").strip().lower()
@@ -145,6 +179,7 @@ def main():
     if add_expenses_prompt == "yes":
         add_new_expenses()
     update_savings()
+    calculate_goal_progress()
 
 main()
 

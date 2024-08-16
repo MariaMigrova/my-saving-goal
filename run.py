@@ -192,16 +192,30 @@ def calculate_goal_progress():
 
 
 def main():
-    add_income_prompt = input(
-        "Do you want to add any new incomes? (yes/no): "
-    ).strip().lower()
-    if add_income_prompt == "yes":
-        add_new_income()
-    add_expenses_prompt = input(
-        "Do you want to add any new expenses? (yes/no): "
-    ).strip().lower()
-    if add_expenses_prompt == "yes":
-        add_new_expenses()
+    while True:
+        add_income_prompt = input(
+            "Do you want to add any new incomes? (yes/no): "
+            ).strip().lower()
+        if add_income_prompt == "yes":
+            add_new_income()
+            break
+        elif add_income_prompt == "no":
+            break
+        else:
+            print("Invalid input, please type 'yes' or 'no'.")
+
+    while True:
+        add_expenses_prompt = input(
+            "Do you want to add any new expenses? (yes/no): "
+            ).strip().lower()
+        if add_expenses_prompt == "yes":
+            add_new_expenses()
+            break
+        elif add_expenses_prompt == "no":
+            break
+        else:
+            print("Invalid input, please type 'yes' or 'no'.")
+
     update_savings()
     calculate_goal_progress()
 

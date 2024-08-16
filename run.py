@@ -87,11 +87,17 @@ def add_new_income():
         incomes_sheet.append_row([date, week_number, income_type, amount])
         print("New income added successfully!\n")
 
-        more_incomes = input(
-            "Do you want to add another income? (yes/no): ").strip().lower()
-        if more_incomes != 'yes':
-            print("No more incomes to add.\n")
-            break
+        while True:
+            more_incomes = input(
+                "Do you want to add another income? (yes/no): "
+                ).strip().lower()
+            if more_incomes == 'yes':
+                add_new_income()
+                break
+            elif more_incomes == 'no':
+                break
+            else:
+                print("Invalid input, please type 'yes' or 'no'.")
 
 
 def add_new_expenses():

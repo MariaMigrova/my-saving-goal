@@ -49,7 +49,7 @@ def add_new_income():
 
     while True:
         while True:
-            date = input("Enter the date of the income (dd/mm/yyyy): ")
+            date = input("Enter the date of the income (dd/mm/yyyy):\n")
             try:
                 datetime.strptime(date, '%d/%m/%Y')
                 break
@@ -64,7 +64,7 @@ def add_new_income():
         while True:
             try:
                 income_type_choice = int(
-                    input("Enter the number correspondingto the income type: ")
+                    input("Enter the number correspondingto the income type:\n")
                     )
                 if 1 <= income_type_choice <= len(income_types):
                     income_type = income_types[income_type_choice - 1]
@@ -77,7 +77,7 @@ def add_new_income():
                 print("Invalid input. Please enter a number.")
 
         while True:
-            amount = input("Enter the amount of income (€): ")
+            amount = input("Enter the amount of income (€):\n")
             try:
                 amount = float(amount)
                 break
@@ -91,7 +91,7 @@ def add_new_income():
 
         while True:
             more_incomes = input(
-                "Do you want to add another income? (yes/no): "
+                "Do you want to add another income? (yes/no):\n"
                 ).strip().lower()
             if more_incomes == 'yes':
                 break
@@ -110,7 +110,7 @@ def add_new_expenses():
 
     while True:
         while True:
-            date = input("Enter the date of the expense (dd/mm/yyyy): ")
+            date = input("Enter the date of the expense (dd/mm/yyyy):\n")
             try:
                 datetime.strptime(date, '%d/%m/%Y')
                 break
@@ -128,7 +128,7 @@ def add_new_expenses():
         while True:
             try:
                 expenses_type_choice = int(input(
-                    "Enter the number corresponding to the expenses type: "))
+                    "Enter the number corresponding to the expenses type:\n"))
                 if 1 <= expenses_type_choice <= len(expenses_types):
                     expenses_type = expenses_types[expenses_type_choice - 1]
                     break
@@ -140,7 +140,7 @@ def add_new_expenses():
                 print("Invalid input. Please enter a number.")
 
         while True:
-            amount = input("Enter the amount of expenses (€): ")
+            amount = input("Enter the amount of expenses (€):\n")
             try:
                 amount = float(amount)
                 break
@@ -154,7 +154,7 @@ def add_new_expenses():
 
         while True:
             more_expenses = input(
-                "Do you want to add another expenses? (yes/no): "
+                "Do you want to add another expenses? (yes/no):\n"
                 ).strip().lower()
             if more_expenses == 'yes':
                 break
@@ -210,7 +210,7 @@ def main():
     while True:
         print("~~~INCOMES~~~")
         add_income_prompt = input(
-            "Do you want to add any new incomes? (yes/no): "
+            "Do you want to add any new incomes? (yes/no):\n"
             ).strip().lower()
         if add_income_prompt == "yes":
             add_new_income()
@@ -223,7 +223,7 @@ def main():
     while True:
         print("~~~EXPENSES~~~")
         add_expenses_prompt = input(
-            "Do you want to add any new expenses? (yes/no): "
+            "Do you want to add any new expenses? (yes/no):\n"
             ).strip().lower()
         if add_expenses_prompt == "yes":
             add_new_expenses()

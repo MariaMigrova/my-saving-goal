@@ -22,20 +22,21 @@ def update_savings():
     expenses_sheet = SHEET.worksheet("Expenses")
     savings_sheet = SHEET.worksheet("Savings")
 
-    print("~~~SAVINGS~~~")
-
     incomes = incomes_sheet.col_values(4)[1:]
     total_income = sum(map(float, incomes))
-    print(f"Your total up to date INCOMES are {total_income} €\n")
-
     expenses = expenses_sheet.col_values(4)[1:]
     total_expense = sum(map(float, expenses))
-    print(f"Your total up to date EXPENSES are {total_expense} €\n")
-
     current_savings = total_income - total_expense
     date = datetime.now().strftime('%d/%m/%Y')
-    print(f"Your current SAVINGS are {current_savings} €\n")
+
+    print("\n===============================")
+    print("        SAVINGS SUMMARY         ")
+    print("===============================\n")
+    print(f"Total Income:    {total_income:.2f} €")
+    print(f"Total Expenses:  {total_expense:.2f} €")
+    print(f"Current Savings: {current_savings:.2f} €\n")
     print("Updating the savings sheet...")
+
     savings_sheet.append_row([
         date, datetime.now().isocalendar()[1], current_savings])
 
@@ -64,7 +65,8 @@ def add_new_income():
         while True:
             try:
                 income_type_choice = int(
-                    input("Enter the number correspondingto the income type:\n")
+                    input(
+                        "Enter the number correspondingto the income type:\n")
                     )
                 if 1 <= income_type_choice <= len(income_types):
                     income_type = income_types[income_type_choice - 1]
@@ -173,8 +175,6 @@ def calculate_goal_progress():
     savings_sheet = SHEET.worksheet("Savings")
     goal_sheet = SHEET.worksheet("Goal")
 
-    print("~~~SAVING GOAL~~~")
-
     last_row = len(savings_sheet.col_values(1))
     current_savings = float(savings_sheet.cell(last_row, 3).value)
     goal_data = goal_sheet.row_values(2)
@@ -182,31 +182,32 @@ def calculate_goal_progress():
     goal_amount = float(goal_data[2])
 
     goal_date = datetime.strptime(goal_date_str, '%d/%m/%Y')
-
     missing_amount = goal_amount - current_savings
-
     current_date = datetime.now()
     remaining_weeks = (goal_date - current_date).days // 7
 
+    print("\n===============================")
+    print("       GOAL PROGRESS REPORT     ")
+    print("===============================\n")
+    print(f"Goal Amount:       {goal_amount:.2f} €")
+    print(f"Current Savings:   {current_savings:.2f} €")
+    print(f"Amount Remaining:  {missing_amount:.2f} €")
+
     if remaining_weeks > 0:
         weekly_savings_needed = missing_amount / remaining_weeks
+        print(f"Weeks Remaining:   {remaining_weeks}")
+        print(f"Average Weekly Savings Needed: {weekly_savings_needed:.2f} €")
     else:
-        weekly_savings_needed = missing_amount
-
-    print(f"You still need to save {missing_amount:.2f} € to "
-          f"reach your goal of {goal_amount} € by "
-          f"{goal_date_str}.")
-
-    if remaining_weeks > 0:
-        print(f"You have {remaining_weeks} weeks remaining.")
-        print(f"On average, you need to save {weekly_savings_needed:.2f} € "
-              f"per week to reach your goal.")
-    else:
-        print("The goal date has passed. You need to save the remaining "
-              "amount immediately.")
+        print(
+            "The goal date has passed.",
+            "You need to save the remaining amount immediately.\n")
 
 
 def main():
+    print("\n===============================")
+    print("       WELCOME TO FINANCE APP   ")
+    print("===============================\n")
+
     while True:
         print("~~~INCOMES~~~")
         add_income_prompt = input(
@@ -235,6 +236,11 @@ def main():
 
     update_savings()
     calculate_goal_progress()
+
+    print("\n===============================")
+    print("       THANK YOU FOR USING      ")
+    print("          FINANCE APP           ")
+    print("===============================\n")
 
 
 main()

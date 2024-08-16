@@ -92,10 +92,9 @@ def add_new_income():
                 "Do you want to add another income? (yes/no): "
                 ).strip().lower()
             if more_incomes == 'yes':
-                add_new_income()
                 break
             elif more_incomes == 'no':
-                break
+                return
             else:
                 print("Invalid input, please type 'yes' or 'no'.")
 

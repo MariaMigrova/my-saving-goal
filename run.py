@@ -151,11 +151,17 @@ def add_new_expenses():
         expenses_sheet.append_row([date, week_number, expenses_type, amount])
         print("New expense added successfully!\n")
 
-        more_expenses = input(
-            "Do you want to add another expenses? (yes/no): ").strip().lower()
-        if more_expenses != 'yes':
-            print("No more expenses to add.\n")
-            break
+        while True:
+            more_expenses = input(
+                "Do you want to add another expenses? (yes/no): "
+                ).strip().lower()
+            if more_expenses == 'yes':
+                break
+            elif more_expenses == 'no':
+                print("No more expenses to add.\n")
+                return
+            else:
+                print("Invalid input, please type 'yes' or 'no'.")
 
 
 def calculate_goal_progress():

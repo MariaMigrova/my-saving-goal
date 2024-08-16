@@ -22,17 +22,19 @@ def update_savings():
     expenses_sheet = SHEET.worksheet("Expenses")
     savings_sheet = SHEET.worksheet("Savings")
 
+    print("~~~SAVINGS~~~")
+
     incomes = incomes_sheet.col_values(4)[1:]
     total_income = sum(map(float, incomes))
-    print(f"Total up to date incomes are {total_income} €\n")
+    print(f"Your total up to date INCOMES are {total_income} €\n")
 
     expenses = expenses_sheet.col_values(4)[1:]
     total_expense = sum(map(float, expenses))
-    print(f"Total up to date expenses are {total_expense} €\n")
+    print(f"Your total up to date EXPENSES are {total_expense} €\n")
 
     current_savings = total_income - total_expense
     date = datetime.now().strftime('%d/%m/%Y')
-    print(f"Your current savings are {current_savings} €\n")
+    print(f"Your current SAVINGS are {current_savings} €\n")
     print("Updating the savings sheet...")
     savings_sheet.append_row([
         date, datetime.now().isocalendar()[1], current_savings])
@@ -171,6 +173,8 @@ def calculate_goal_progress():
     savings_sheet = SHEET.worksheet("Savings")
     goal_sheet = SHEET.worksheet("Goal")
 
+    print("~~~SAVING GOAL~~~")
+
     last_row = len(savings_sheet.col_values(1))
     current_savings = float(savings_sheet.cell(last_row, 3).value)
     goal_data = goal_sheet.row_values(2)
@@ -204,6 +208,7 @@ def calculate_goal_progress():
 
 def main():
     while True:
+        print("~~~INCOMES~~~")
         add_income_prompt = input(
             "Do you want to add any new incomes? (yes/no): "
             ).strip().lower()
@@ -216,6 +221,7 @@ def main():
             print("Invalid input, please type 'yes' or 'no'.")
 
     while True:
+        print("~~~EXPENSES~~~")
         add_expenses_prompt = input(
             "Do you want to add any new expenses? (yes/no): "
             ).strip().lower()

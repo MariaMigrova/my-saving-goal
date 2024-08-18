@@ -100,8 +100,8 @@ def add_new_income():
                 print("New income added successfully!\n")
                 break
             elif check == "no":
-                print("Let's do it again so")
-                add_new_income()
+                print("Income entry discarded. Please re-enter details.\n")
+                break
             else:
                 print("Invalid input, please type 'yes' or 'no'.")
 
@@ -165,8 +165,23 @@ def add_new_expenses():
 
         week_number = datetime.strptime(date, '%d/%m/%Y').isocalendar()[1]
 
-        expenses_sheet.append_row([date, week_number, expenses_type, amount])
-        print("New expense added successfully!\n")
+
+        while True:
+            check = input(
+                f"Date: {date}\n"
+                f"Expenses type: {expenses_type}\n"
+                f"Amount: {amount}\n"
+                "Do you want to save this? ('yes'/'no'): ")
+            if check == "yes":
+                expenses_sheet.append_row(
+                    [date, week_number, expenses_type, amount])
+                print("New expenses added successfully!\n")
+                break
+            elif check == "no":
+                print("Expense entry discarded. Please re-enter details.\n")
+                break
+            else:
+                print("Invalid input, please type 'yes' or 'no'.")
 
         while True:
             more_expenses = input(

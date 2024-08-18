@@ -20,3 +20,12 @@ Stay organized and in control of your finances with real-time updates and progre
 
 ### Data Security
 - Users expect their personal and financial data to be stored securely, ensuring privacy and confidentiality. Only the user should have access to their data.
+
+## Flow Chart
+
+This flow chart provides a high-level overview of how the application operates and helps in understanding the flow of data and user interactions. 
+
+![Python Project Flow chart](https://github.com/user-attachments/assets/33f2bf60-5099-4750-a72b-921433ba4541)
+
+
+

@@ -88,8 +88,22 @@ def add_new_income():
 
         week_number = datetime.strptime(date, '%d/%m/%Y').isocalendar()[1]
 
-        incomes_sheet.append_row([date, week_number, income_type, amount])
-        print("New income added successfully!\n")
+        while True:
+            check = input(
+                f"Date: {date}\n"
+                f"Income type: {income_type}\n"
+                f"Amount: {amount}\n"
+                "Do you want to save this? ('yes'/'no'): ")
+            if check == "yes":
+                incomes_sheet.append_row(
+                    [date, week_number, income_type, amount])
+                print("New income added successfully!\n")
+                break
+            elif check == "no":
+                print("Let's do it again so")
+                add_new_income()
+            else:
+                print("Invalid input, please type 'yes' or 'no'.")
 
         while True:
             more_incomes = input(

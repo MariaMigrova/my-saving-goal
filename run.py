@@ -14,6 +14,77 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('MySavingGoal')
 
 
+def update_goal():
+    """
+    Checks with the user if he/she wants to update their goal
+    and overwrites the goal in the spreadsheet if confirmed.
+    """
+    goal_sheet = SHEET.worksheet("Goal")
+    date = goal_sheet.col_values(1)[1]
+    goal_amount = goal_sheet.col_values(3)[1]
+
+    print(f"Your current goal is to save {goal_amount} € by {date}.")
+
+    while True:
+        goal_change = input(
+            "Do you want to make changes to this goal? ('yes'/'no'):\n"
+        ).strip().lower()
+
+        if goal_change == "yes":
+            while True:
+                while True:
+                    new_goal_amount = input("New savings goal amount (€):\n")
+                    try:
+                        new_goal_amount = float(new_goal_amount)
+                        break
+                    except ValueError:
+                        print("Invalid amount. Please enter a number.")
+
+                while True:
+                    new_goal_date = input(
+                        "New savings goal date: (dd/mm/yyyy):\n")
+                    try:
+                        new_goal_date = datetime.strptime(
+                            new_goal_date, '%d/%m/%Y').strftime('%d/%m/%Y')
+                        break
+                    except ValueError:
+                        print("Invalid date format. Please try again.")
+
+                while True:
+                    confirm_update = input(
+                        f"New goal: Save {new_goal_amount} €"
+                        f"by {new_goal_date}.\n"
+                        "Are you happy with this update? ('yes'/'no'):\n"
+                    ).strip().lower()
+
+                    if confirm_update == "yes":
+                        goal_sheet.update(
+                            range_name='A2', values=[[new_goal_date]])
+                        goal_sheet.update(
+                            range_name='C2', values=[[new_goal_amount]])
+
+                        week_number = datetime.strptime(
+                            new_goal_date, '%d/%m/%Y').isocalendar()[1]
+                        goal_sheet.update(
+                            range_name='B2', values=[[week_number]])
+
+                        print("Goal updated successfully!")
+                        return
+
+                    elif confirm_update == "no":
+                        print("Let's try updating the goal again.")
+                        break
+
+                    else:
+                        print("Invalid input, please type 'yes' or 'no'.")
+
+        elif goal_change == "no":
+            print("No changes made to your savings goal.")
+            break
+        else:
+            print("Invalid input, please type 'yes' or 'no'.")
+
+
 def update_savings():
     """
     Updates the savings sheet with the latest expenses and incomes
@@ -235,6 +306,8 @@ def main():
     print("\n===============================")
     print("       WELCOME TO FINANCE APP   ")
     print("===============================\n")
+
+    update_goal()
 
     while True:
         print("~~~INCOMES~~~")

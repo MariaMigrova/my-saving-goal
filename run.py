@@ -165,7 +165,6 @@ def add_new_expenses():
 
         week_number = datetime.strptime(date, '%d/%m/%Y').isocalendar()[1]
 
-
         while True:
             check = input(
                 f"Date: {date}\n"

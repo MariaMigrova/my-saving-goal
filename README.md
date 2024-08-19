@@ -81,6 +81,24 @@ Final thank you message
 
 ![image](https://github.com/user-attachments/assets/8767b0d0-06bc-4676-9d19-cffc001a7c2d)
 
+# Technologies Used
+
+- Python: Core programming language used to build the application's logic.
+  
+- GitHub: For version control, code storage, and collaboration.
+  
+- Gitpod: Cloud-based development environment used for coding and testing.
+  
+- Heroku: Platform used for deploying and hosting the application online.
+  
+- LucidCharts: Tool for designing flowcharts and diagrams to map out project logic
+  
+- CI - Python Linter: Automated tool used to ensure code quality and consistency.
+  
+- Google Sheets: Used to store and manage user data for the application.
+  
+- Google Cloud: Platform for accessing APIs and managing cloud resources.
+
 
 
 

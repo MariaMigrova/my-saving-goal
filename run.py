@@ -52,7 +52,7 @@ def update_goal():
 
                 while True:
                     confirm_update = input(
-                        f"New goal: Save {new_goal_amount} €"
+                        f"New goal: Save {new_goal_amount} €\n"
                         f"by {new_goal_date}.\n"
                         "Are you happy with this update? ('yes'/'no'):\n"
                     ).strip().lower()

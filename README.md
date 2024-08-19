@@ -10,13 +10,13 @@ Stay organized and in control of your finances with real-time updates and progre
 
 ## User Expectations
 ### Ease of Use
-- Users expect a simple and intuitive interface that allows them to effortlessly input their incomes and expenses. The app should provide clear prompts and easy navigation to guide users through the process.
+- Users expect a simple and intuitive interface that allows them to effortlessly input their incomes and expenses or update their saving goal. The app should provide clear prompts and easy navigation to guide users through the process.
 
 ### Accurate Calculations
 - Users expect the app to accurately track their savings, ensuring that all calculations based on the entered data are precise. Real-time updates and summaries of the savings and expenses should be presented to the user.
 
 ### Goal Tracking
-- Users expect helpful insights into their progress toward their financial goals. This includes visualizations and calculations showing how much needs to be saved on a weekly basis to stay on track.
+- Users expect helpful insights into their progress toward their financial goals. This includes calculations showing how much needs to be saved on a weekly basis to stay on track.
 
 ### Data Security
 - Users expect their personal and financial data to be stored securely, ensuring privacy and confidentiality. Only the user should have access to their data.
@@ -25,7 +25,7 @@ Stay organized and in control of your finances with real-time updates and progre
 
 This flow chart provides a high-level overview of how the application operates and helps in understanding the flow of data and user interactions. 
 
-![Python Project Flow chart](https://github.com/user-attachments/assets/33f2bf60-5099-4750-a72b-921433ba4541)
+![FlowChart](https://github.com/user-attachments/assets/598852ab-eaa6-4368-90e6-e1f5edb0501d)
 
 ## Features
 

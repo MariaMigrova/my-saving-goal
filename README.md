@@ -244,6 +244,17 @@ I used Code Institute’s Python Linter to validate my Python code, ensuring it 
 
 - Click the “Fork” button in the top right corner of the page.
 
+## Credits and References
+
+- **API Creation, Encryption Key, and Google Cloud Integration:**  
+  This project utilizes concepts and techniques from the Code Institute: "Love Sandwiches" project.
+
+- **Readme File Guidance:**  
+  Inspiration for this README file was drawn from the [README.md](https://github.com/bmays9/top-trumps/blob/main/README.md) of the Top Trumps project by [bmays9](https://github.com/bmays9).
+
+- **Special Thanks:**  
+  A special thank you to my mentor, Harry Dhillon, for his invaluable support and guidance. His advice has been incredibly valuable and deeply appreciated throughout this project.
+
 
 
 

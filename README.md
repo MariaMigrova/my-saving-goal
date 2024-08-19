@@ -81,7 +81,7 @@ Final thank you message
 
 ![image](https://github.com/user-attachments/assets/8767b0d0-06bc-4676-9d19-cffc001a7c2d)
 
-# Technologies Used
+## Technologies Used
 
 - Python: Core programming language used to build the application's logic.
   
@@ -99,13 +99,79 @@ Final thank you message
   
 - Google Cloud: Platform for accessing APIs and managing cloud resources.
 
-## Python Libraries
+### Python Libraries
 
 - Gspread: A library used to interact with Google Sheets, enabling reading and writing of data programmatically.
 
 - Credentials from google.oauth2.service_account: Used for authentication and authorization with Google APIs using service account credentials.
 
 - Datetime: Standard Python library used to work with dates and times, including parsing, formatting, and manipulating date-related data.
+
+## Testing
+
+### Validator Testing
+
+I used Code Institute’s Python Linter to validate my Python code, ensuring it adheres to best practices. No errors were found during validation.
+
+![image](https://github.com/user-attachments/assets/0e696085-427d-4d58-b5cd-a2f47218423f)
+
+### Manual Testing
+
+<table>
+<thead>
+  <tr>
+    <th>Test Case</th>
+    <th>Input Scenario</th>
+    <th>Actual Result</th>
+    <th>Pass / Fail</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Application loads without any error messages</td>
+    <td>N/A</td>
+    <td>No error messages displayed</td>
+    <td>Pass</td>
+  </tr>
+  <tr>
+    <td>Main Menu is displayed and awaits user input</td>
+    <td>N/A</td>
+    <td>Welcome message and main menu are displayed; terminal is awaiting user input</td>
+    <td>Pass</td>
+  </tr>
+  <tr>
+    <td>Input validation for all user inputs</td>
+    <td>Invalid input (e.g., random text, incorrect format, wrong value)</td>
+    <td>Invalid input is rejected, and the user is prompted to enter a valid input (covers all inputs)</td>
+    <td>Pass</td>
+  </tr>
+  <tr>
+    <td>All inputs accept upper and lowercase variations</td>
+    <td>Valid inputs: 'm', 'M', 'u', 'U', etc.</td>
+    <td>All valid inputs (regardless of case) are accepted and lead to the correct function</td>
+    <td>Pass</td>
+  </tr>
+  <tr>
+    <td>Decision-making inputs are handled correctly</td>
+    <td>User input: 'yes' or 'no'</td>
+    <td>If 'yes', user is prompted to provide further details or proceed; if 'no', the application continues without changes</td>
+    <td>Pass</td>
+  </tr>
+  <tr>
+    <td>Update or rejection is confirmed or handled properly</td>
+    <td>User confirms or rejects changes</td>
+    <td>If confirmed, changes are updated and saved; if rejected, user is prompted to re-enter details</td>
+    <td>Pass</td>
+  </tr>
+  <tr>
+    <td>Summary validation is handled correctly</td>
+    <td>User reviews summary and decides to proceed</td>
+    <td>If confirmed, data is saved; if rejected, user is prompted again</td>
+    <td>Pass</td>
+  </tr>
+</tbody>
+</table>
+
 
 
 

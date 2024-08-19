@@ -99,6 +99,16 @@ Final thank you message
   
 - Google Cloud: Platform for accessing APIs and managing cloud resources.
 
+## Python Libraries
+
+- Gspread: A library used to interact with Google Sheets, enabling reading and writing of data programmatically.
+
+- Credentials from google.oauth2.service_account: Used for authentication and authorization with Google APIs using service account credentials.
+
+- Datetime: Standard Python library used to work with dates and times, including parsing, formatting, and manipulating date-related data.
+
+
+
 
 
 

@@ -172,6 +172,78 @@ I used Code Institute’s Python Linter to validate my Python code, ensuring it 
 </tbody>
 </table>
 
+## Deployment
+
+### How to Deploy the Project
+
+#### 1. Create a Heroku Account and Log In:
+
+- If you don’t already have a Heroku account, sign up at Heroku. Log in if you have an existing account.
+
+#### 2. Create a New App:
+
+- Go to your Heroku dashboard and click on “New,” then select “Create new app.”
+  
+- Provide a name for your app and choose a region, then click on “Create app.”
+  
+#### 3. Configure Settings:
+
+- Navigate to the “Settings” tab at the top of the page.
+  
+- Under “Config Vars,” set your Key/Value pairs as needed.
+  
+#### 4. Add Buildpacks:
+
+- In the “Buildpacks” section, add the required buildpacks in the following order:
+  
+  - Click the Python icon and select “Add Buildpack.”
+  - Next, click the Node.js icon and select “Add Buildpack.”
+
+#### 5. Set Up Deployment:
+
+- Go to the “Deployment” tab.
+
+- Under “Deployment method,” choose “GitHub” if your repository is hosted there.
+
+- In the “Connect to GitHub” section, find your repository and click “Connect.”
+
+- To enable automatic deployments, click “Enable Automatic Deploys.” For a one-time deployment, go to the “Manual Deploy” section and click “Deploy Manually.”
+
+### How to Clone the Project
+
+#### 1. Log into GitHub:
+
+- Visit GitHub and log in to your account.
+  
+#### 2. Navigate to the Project Repository:
+
+- Go to the repository at (https://github.com/MariaMigrova/my-saving-goal).
+  
+#### 3. Copy the Repository Link:
+
+- Click the “Code” button and copy your preferred link (either HTTPS or SSH).
+  
+#### 4. Clone the Repository:
+
+- Open the terminal in your code editor.
+  
+- Change the working directory to the location where you want to clone the repository.
+  
+- Type git clone followed by the link you copied and press Enter.
+
+### How to Fork the Repository 
+#### 1. Log into GitHub:
+
+- Visit GitHub and log in to your account.
+
+#### 2. Navigate to the Project Repository:
+
+- Go to the repository at (https://github.com/MariaMigrova/my-saving-goal).
+
+#### 3. Fork the Repository:
+
+- Click the “Fork” button in the top right corner of the page.
+
 
 
 

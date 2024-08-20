@@ -44,9 +44,17 @@ def update_goal():
                     new_goal_date = input(
                         "New savings goal date: (dd/mm/yyyy):\n")
                     try:
-                        new_goal_date = datetime.strptime(
-                            new_goal_date, '%d/%m/%Y').strftime('%d/%m/%Y')
-                        break
+                        new_goal_date_obj = datetime.strptime(
+                            new_goal_date, '%d/%m/%Y')
+                        today = datetime.today()
+                        if new_goal_date_obj < today:
+                            print(
+                                "Your saving goal date cannot be in the past. "
+                                "Please try again.")
+                        else:
+                            new_goal_date = new_goal_date_obj.strftime(
+                                "%d/%m/%Y")
+                            break
                     except ValueError:
                         print("Invalid date format. Please try again.")
 

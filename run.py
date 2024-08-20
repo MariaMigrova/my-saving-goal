@@ -133,13 +133,13 @@ def add_new_income():
             try:
                 saving_date_obj = datetime.strptime(saving_date, '%d/%m/%Y')
                 today = datetime.today()
-                three_months_later = today - timedelta(days=90)
+                three_months_earlier = today - timedelta(days=90)
 
                 if saving_date_obj > today:
                     print(
                         "Your saving date cannot be in the future. "
                         "Please try again.")
-                elif saving_date_obj < three_months_later:
+                elif saving_date_obj < three_months_earlier:
                     print(
                         "Your saving date cannot be older than 3 months. "
                         "Please try again.")

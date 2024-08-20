@@ -145,7 +145,7 @@ def add_new_income():
             try:
                 income_type_choice = int(
                     input(
-                        "Enter the number correspondingto the income type:\n")
+                        "Enter the number corresponding to the income type:\n")
                     )
                 if 1 <= income_type_choice <= len(income_types):
                     income_type = income_types[income_type_choice - 1]

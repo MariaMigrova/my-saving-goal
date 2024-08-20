@@ -178,7 +178,7 @@ def add_new_income():
                 if saving_amount > 1000000:
                     print(
                         "Your income amount cannot be more than 1000 000 €. "
-                        "Otherwise, you don't need the Saving App :D "
+                        "Otherwise, you don't need the Saving App. 😂 "
                         "Please, try again.")
                 else:
                     break
@@ -277,7 +277,7 @@ def add_new_expenses():
                 if expense_amount > 1000000:
                     print(
                         "Your expense amount cannot be more than 1000 000 €. "
-                        "Otherwise, you don't need the Saving App :D "
+                        "Otherwise, you don't need the Saving App. 😂 "
                         "Please, try again.")
                 else:
                     break
@@ -343,6 +343,10 @@ def calculate_goal_progress():
     print(f"Current Savings:   {current_savings:.2f} €")
     print(f"Amount Remaining:  {missing_amount:.2f} €")
 
+    if current_savings >= goal_amount:
+        print("Congratulations! 🎉")
+        print(f"You have reached your savings goal of {goal_amount:.2f} €!")
+
     if remaining_weeks > 0:
         weekly_savings_needed = missing_amount / remaining_weeks
         print(f"Weeks Remaining:   {remaining_weeks}")
@@ -350,7 +354,7 @@ def calculate_goal_progress():
     else:
         print(
             "The goal date has passed.",
-            "Unfortunately, you didn't reach your goal! :( \n")
+            "Unfortunately, you didn't reach your goal! 😔 \n")
 
 
 def main():

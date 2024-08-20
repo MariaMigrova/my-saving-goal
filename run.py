@@ -137,17 +137,17 @@ def add_new_income():
 
                 if saving_date_obj > today:
                     print(
-                        "Your saving date cannot be in the future. "
-                        "Please try again.")
+                        "Your income date cannot be in the future. "
+                        "Please, try again.")
                 elif saving_date_obj < three_months_earlier:
                     print(
-                        "Your saving date cannot be older than 3 months. "
-                        "Please try again.")
+                        "Your income date cannot be older than 3 months. "
+                        "Please, try again.")
                 else:
                     saving_date = saving_date_obj.strftime("%d/%m/%Y")
                     break
             except ValueError:
-                print("Invalid date format. Please try again.")
+                print("Invalid date format. Please, try again.")
 
         income_types = ["Wages", "Freelance", "Investment", "Other"]
         print("Select the type of income:")
@@ -171,12 +171,20 @@ def add_new_income():
                 print("Invalid input. Please enter a number.")
 
         while True:
-            amount = input("Enter the amount of income (€):\n")
+            saving_amount = input("Enter the amount of income (€):\n")
             try:
-                amount = float(amount)
-                break
+                saving_amount = float(saving_amount)
+
+                if saving_amount > 100000:
+                    print(
+                        "Your income amount cannot be more than 100 000 €. "
+                        "Who are you trying to lie to? :D "
+                        "Please, try again.")
+                else:
+                    break
             except ValueError:
                 print("Invalid amount. Please enter a number.")
+                break
 
         week_number = datetime.strptime(
             saving_date, '%d/%m/%Y').isocalendar()[1]
@@ -185,11 +193,11 @@ def add_new_income():
             check = input(
                 f"Date: {saving_date}\n"
                 f"Income type: {income_type}\n"
-                f"Amount: {amount}\n"
+                f"Amount: {saving_amount}\n"
                 "Do you want to save this? ('yes'/'no'): ")
             if check == "yes":
                 incomes_sheet.append_row(
-                    [saving_date, week_number, income_type, amount])
+                    [saving_date, week_number, income_type, saving_amount])
                 print("New income added successfully!\n")
                 break
             elif check == "no":

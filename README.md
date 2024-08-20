@@ -4,7 +4,7 @@ View the Live App [here](https://my-saving-goal-67787e47a60d.herokuapp.com/)
 
 My Saving Goal is a personal finance tracking app designed to help you monitor your income, expenses, and savings progress with ease.
 
-With intuitive input forms and automated goal calculations, it simplifies financial planning and keeps you on track to reach your savings goals.
+Set your own savings goal with a target amount and date, and update it anytime as your financial plans evolve. The app integrates with Google Sheets, where all your income and expense data are securely stored. Previous inputs are saved, allowing you to build on your existing financial history, and your savings are updated accordingly.
 
 Stay organized and in control of your finances with real-time updates and progress tracking.
 

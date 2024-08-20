@@ -175,10 +175,10 @@ def add_new_income():
             try:
                 saving_amount = float(saving_amount)
 
-                if saving_amount > 100000:
+                if saving_amount > 1000000:
                     print(
-                        "Your income amount cannot be more than 100 000 €. "
-                        "Who are you trying to lie to? :D "
+                        "Your income amount cannot be more than 1000 000 €. "
+                        "Otherwise, you don't need the Saving App :D "
                         "Please, try again.")
                 else:
                     break
@@ -271,10 +271,16 @@ def add_new_expenses():
                 print("Invalid input. Please enter a number.")
 
         while True:
-            amount = input("Enter the amount of expenses (€):\n")
+            expense_amount = input("Enter the amount of expenses (€):\n")
             try:
-                amount = float(amount)
-                break
+                expense_amount = float(expense_amount)
+                if expense_amount > 1000000:
+                    print(
+                        "Your expense amount cannot be more than 1000 000 €. "
+                        "Otherwise, you don't need the Saving App :D "
+                        "Please, try again.")
+                else:
+                    break
             except ValueError:
                 print("Invalid amount. Please enter a number.")
 
@@ -285,11 +291,11 @@ def add_new_expenses():
             check = input(
                 f"Date: {expense_date}\n"
                 f"Expenses type: {expenses_type}\n"
-                f"Amount: {amount}\n"
+                f"Amount: {expense_amount}\n"
                 "Do you want to save this? ('yes'/'no'): ")
             if check == "yes":
                 expenses_sheet.append_row(
-                    [expense_date, week_number, expenses_type, amount])
+                    [expense_date, week_number, expenses_type, expense_amount])
                 print("New expenses added successfully!\n")
                 break
             elif check == "no":

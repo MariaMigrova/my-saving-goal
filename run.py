@@ -1,6 +1,6 @@
 import gspread
 from google.oauth2.service_account import Credentials
-from datetime import datetime
+from datetime import datetime, timedelta
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -129,10 +129,23 @@ def add_new_income():
 
     while True:
         while True:
-            date = input("Enter the date of the income (dd/mm/yyyy):\n")
+            saving_date = input("Enter the date of the income (dd/mm/yyyy):\n")
             try:
-                datetime.strptime(date, '%d/%m/%Y')
-                break
+                saving_date_obj = datetime.strptime(saving_date, '%d/%m/%Y')
+                today = datetime.today()
+                three_months_later = today - timedelta(days=90)
+
+                if saving_date_obj > today:
+                    print(
+                        "Your saving date cannot be in the future. "
+                        "Please try again.")
+                elif saving_date_obj < three_months_later:
+                    print(
+                        "Your saving date cannot be older than 3 months. "
+                        "Please try again.")
+                else:
+                    saving_date = saving_date_obj.strftime("%d/%m/%Y")
+                    break
             except ValueError:
                 print("Invalid date format. Please try again.")
 
@@ -165,17 +178,18 @@ def add_new_income():
             except ValueError:
                 print("Invalid amount. Please enter a number.")
 
-        week_number = datetime.strptime(date, '%d/%m/%Y').isocalendar()[1]
+        week_number = datetime.strptime(
+            saving_date, '%d/%m/%Y').isocalendar()[1]
 
         while True:
             check = input(
-                f"Date: {date}\n"
+                f"Date: {saving_date}\n"
                 f"Income type: {income_type}\n"
                 f"Amount: {amount}\n"
                 "Do you want to save this? ('yes'/'no'): ")
             if check == "yes":
                 incomes_sheet.append_row(
-                    [date, week_number, income_type, amount])
+                    [saving_date, week_number, income_type, amount])
                 print("New income added successfully!\n")
                 break
             elif check == "no":

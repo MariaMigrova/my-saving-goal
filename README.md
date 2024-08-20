@@ -117,6 +117,7 @@ I used Code Institute’s Python Linter to validate my Python code, ensuring it 
 
 ### Manual Testing
 
+
 <table>
 <thead>
   <tr>
@@ -128,49 +129,117 @@ I used Code Institute’s Python Linter to validate my Python code, ensuring it 
 </thead>
 <tbody>
   <tr>
-    <td>Application loads without any error messages</td>
+    <td>Application Loads without Any Error Messages</td>
     <td>N/A</td>
     <td>No error messages displayed</td>
     <td>Pass</td>
   </tr>
   <tr>
-    <td>Main Menu is displayed and awaits user input</td>
+    <td>Welcome Message Displayed</td>
     <td>N/A</td>
-    <td>Welcome message and main menu are displayed; terminal is awaiting user input</td>
+    <td>Welcome message displayed and awaiting user input</td>
     <td>Pass</td>
   </tr>
   <tr>
-    <td>Input validation for all user inputs</td>
-    <td>Invalid input (e.g., random text, incorrect format, wrong value)</td>
-    <td>Invalid input is rejected, and the user is prompted to enter a valid input (covers all inputs)</td>
+    <td>Goal Update Confirmation - Yes/No</td>
+    <td>Invalid Input (e.g., random word)</td>
+    <td>Displays invalid input message and prompts user for correct input</td>
     <td>Pass</td>
   </tr>
   <tr>
-    <td>All inputs accept upper and lowercase variations</td>
-    <td>Valid inputs: 'm', 'M', 'u', 'U', etc.</td>
-    <td>All valid inputs (regardless of case) are accepted and lead to the correct function</td>
+    <td>Saving Goal Amount Input</td>
+    <td>Invalid Input (e.g., letters)</td>
+    <td>Displays invalid input message and prompts user for correct input</td>
     <td>Pass</td>
   </tr>
   <tr>
-    <td>Decision-making inputs are handled correctly</td>
-    <td>User input: 'yes' or 'no'</td>
-    <td>If 'yes', user is prompted to provide further details or proceed; if 'no', the application continues without changes</td>
+    <td>Saving Goal Date Input</td>
+    <td>Invalid Input (e.g., incorrect format or past date)</td>
+    <td>Displays invalid input message and prompts user for correct input</td>
     <td>Pass</td>
   </tr>
   <tr>
-    <td>Update or rejection is confirmed or handled properly</td>
-    <td>User confirms or rejects changes</td>
-    <td>If confirmed, changes are updated and saved; if rejected, user is prompted to re-enter details</td>
+    <td>Save Updated Goal - Yes/No</td>
+    <td>Invalid Input (e.g., random word)</td>
+    <td>Displays invalid input message and prompts user for correct input</td>
     <td>Pass</td>
   </tr>
   <tr>
-    <td>Summary validation is handled correctly</td>
-    <td>User reviews summary and decides to proceed</td>
-    <td>If confirmed, data is saved; if rejected, user is prompted again</td>
+    <td>Add New Income - Yes/No</td>
+    <td>Invalid Input (e.g., random word)</td>
+    <td>Displays invalid input message and prompts user for correct input</td>
+    <td>Pass</td>
+  </tr>
+  <tr>
+    <td>Income Date Input</td>
+    <td>Invalid Input (e.g., incorrect format, future date, or date older than 3 months)</td>
+    <td>Displays invalid input message and prompts user for correct input</td>
+    <td>Pass</td>
+  </tr>
+  <tr>
+    <td>Income Type Input</td>
+    <td>Invalid Input (e.g., number not in list or letters)</td>
+    <td>Displays invalid input message and prompts user for correct input</td>
+    <td>Pass</td>
+  </tr>
+  <tr>
+    <td>Income Amount Input</td>
+    <td>Invalid Input (e.g., letters or amount exceeding 1,000,000)</td>
+    <td>Displays invalid input message and prompts user for correct input</td>
+    <td>Pass</td>
+  </tr>
+  <tr>
+    <td>Save Income - Yes/No</td>
+    <td>Invalid Input (e.g., random word)</td>
+    <td>Displays invalid input message and prompts user for correct input</td>
+    <td>Pass</td>
+  </tr>
+  <tr>
+    <td>Add Another Income?</td>
+    <td>Invalid Input (e.g., random word)</td>
+    <td>Displays invalid input message and prompts user for correct input</td>
+    <td>Pass</td>
+  </tr>
+  <tr>
+    <td>Add New Expenses - Yes/No</td>
+    <td>Invalid Input (e.g., random word)</td>
+    <td>Displays invalid input message and prompts user for correct input</td>
+    <td>Pass</td>
+  </tr>
+  <tr>
+    <td>Expenses Date Input</td>
+    <td>Invalid Input (e.g., incorrect format, future date, or date older than 3 months)</td>
+    <td>Displays invalid input message and prompts user for correct input</td>
+    <td>Pass</td>
+  </tr>
+  <tr>
+    <td>Expenses Type Input</td>
+    <td>Invalid Input (e.g., number not in list or letters)</td>
+    <td>Displays invalid input message and prompts user for correct input</td>
+    <td>Pass</td>
+  </tr>
+  <tr>
+    <td>Expenses Amount Input</td>
+    <td>Invalid Input (e.g., letters or amount exceeding 1,000,000)</td>
+    <td>Displays invalid input message and prompts user for correct input</td>
+    <td>Pass</td>
+  </tr>
+  <tr>
+    <td>Save Expenses - Yes/No</td>
+    <td>Invalid Input (e.g., random word)</td>
+    <td>Displays invalid input message and prompts user for correct input</td>
+    <td>Pass</td>
+  </tr>
+  <tr>
+    <td>Add Another Expense?</td>
+    <td>Invalid Input (e.g., random word)</td>
+    <td>Displays invalid input message and prompts user for correct input</td>
     <td>Pass</td>
   </tr>
 </tbody>
 </table>
+
+
 
 ## Deployment
 

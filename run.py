@@ -219,10 +219,24 @@ def add_new_expenses():
 
     while True:
         while True:
-            date = input("Enter the date of the expense (dd/mm/yyyy):\n")
+            expense_date = input(
+                "Enter the date of the expense (dd/mm/yyyy):\n")
             try:
-                datetime.strptime(date, '%d/%m/%Y')
-                break
+                expense_date_obj = datetime.strptime(expense_date, '%d/%m/%Y')
+                today = datetime.today()
+                three_months_earlier = today - timedelta(days=90)
+
+                if expense_date_obj > today:
+                    print(
+                        "Your expense date cannot be in the future. "
+                        "Please try again.")
+                elif expense_date_obj < three_months_earlier:
+                    print(
+                        "Your expense date cannot be older than 3 months. "
+                        "Please, try again.")
+                else:
+                    expense_date = expense_date_obj.strftime("%d/%m/%Y")
+                    break
             except ValueError:
                 print("Invalid date format. Please try again.")
 
@@ -256,17 +270,18 @@ def add_new_expenses():
             except ValueError:
                 print("Invalid amount. Please enter a number.")
 
-        week_number = datetime.strptime(date, '%d/%m/%Y').isocalendar()[1]
+        week_number = datetime.strptime(
+            expense_date, '%d/%m/%Y').isocalendar()[1]
 
         while True:
             check = input(
-                f"Date: {date}\n"
+                f"Date: {expense_date}\n"
                 f"Expenses type: {expenses_type}\n"
                 f"Amount: {amount}\n"
                 "Do you want to save this? ('yes'/'no'): ")
             if check == "yes":
                 expenses_sheet.append_row(
-                    [date, week_number, expenses_type, amount])
+                    [expense_date, week_number, expenses_type, amount])
                 print("New expenses added successfully!\n")
                 break
             elif check == "no":

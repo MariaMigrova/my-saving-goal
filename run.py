@@ -350,7 +350,7 @@ def calculate_goal_progress():
     else:
         print(
             "The goal date has passed.",
-            "You need to save the remaining amount immediately.\n")
+            "Unfortunately, you didn't reach your goal! :( \n")
 
 
 def main():

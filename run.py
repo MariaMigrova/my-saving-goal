@@ -367,6 +367,10 @@ def calculate_goal_progress():
 
 
 def main():
+    """
+    Runs the Finance App, guiding the user to update goals, add incomes
+    and expenses, update savings, and calculate goal progress.
+    """
     print("\n===============================")
     print("       WELCOME TO FINANCE APP   ")
     print("===============================\n")

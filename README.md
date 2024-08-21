@@ -8,6 +8,9 @@ Set your own savings goal with a target amount and date, and update it anytime a
 
 Stay organized and in control of your finances with real-time updates and progress tracking.
 
+![image](https://github.com/user-attachments/assets/304bf690-eda4-4ad1-aa6a-2202f8cdbdd7)
+
+
 ## User Expectations
 ### Ease of Use
 - Users expect a simple and intuitive interface that allows them to effortlessly input their incomes and expenses or update their saving goal. The app should provide clear prompts and easy navigation to guide users through the process.
